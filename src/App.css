@@ -1,6 +1,8 @@
 html,
 body {
+  font-family: "VT323", monospace;
   height: 100%;
+  background-color: #efeeea;
 }
 
 html {
@@ -24,30 +26,30 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "VT323", monospace;
   font-weight: 900;
 }
 
 label {
-  font-family: "VT323", monospace;
   font-weight: 600;
   font-size: 24px;
 }
 p {
-  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 24px;
 }
 
 input {
+  font-family: "VT323", monospace !important;
+  font-size: 18px;
   border: none;
   padding: 10px;
   margin: 10px;
   height: 20px;
   width: 500px;
-  border: 1px solid #eaeaea;
+  border: 1px solid #efeeea;
   outline: none;
   border-radius: 25px;
+  background-color: #efeeea;
 }
 input:hover {
   border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
