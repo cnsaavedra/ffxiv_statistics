@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Demographics } from "./Demographics";
 
-function MainPage() {
+function FCStatistics() {
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -142,4 +142,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default FCStatistics;

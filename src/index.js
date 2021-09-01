@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MainPage from "./Main/MainPage";
+import FCStatistics from "./Main/FCStatistics";
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <FCStatistics />
     </div>
   );
 }
