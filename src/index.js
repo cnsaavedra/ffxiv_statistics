@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FCStatistics from "./Main/FCStatistics";
+import FCStatistics from "./FreeCompany/FCStatistics";
 
 function App() {
   return (
