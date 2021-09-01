@@ -122,19 +122,19 @@ function MainPage() {
 
   return (
     <div className="App">
-      <p>Please search your FC name to find your FC demographics!</p>
+      <h1>Please search your FC name to find your FC demographics!</h1>
       <form class="search">
         <label>
           Free Company name:
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Please type here..."
             value={searchTerm}
             onChange={handleChange}
           />
         </label>
-        <button type="button" onClick={() => handleInput()}>
-          Show me!
+        <button class="button" type="button" onClick={() => handleInput()}>
+          Generate
         </button>
       </form>
       <Demographics data={data} isLoading={isLoading} />
