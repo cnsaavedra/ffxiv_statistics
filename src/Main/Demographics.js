@@ -26,8 +26,8 @@ export const Demographics = ({ data, isLoading }) => {
         <p>Miqote: {JSON.stringify(data[0]["Miqote"]) ?? 0}</p>
         <p>Roegadyn: {JSON.stringify(data[0]["Roegadyn"]) ?? 0}</p>
         <p>Au Ra: {JSON.stringify(data[0]["Au Ra"]) ?? 0}</p>
-        <p>Furry Degen: {JSON.stringify(data[0]["Furry Degen"]) ?? 0}</p>
-        <p>Furry Degen: {JSON.stringify(data[0]["Furry Degen"]) ?? 0}</p>
+        <p>Hrothgar: {JSON.stringify(data[0]["Hrothgar"]) ?? 0}</p>
+        <p>Viera: {JSON.stringify(data[0]["Viera"]) ?? 0}</p>
       </div>
     );
   }

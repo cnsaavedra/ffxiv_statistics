@@ -75,8 +75,8 @@ function MainPage() {
       "Miqote",
       "Roegadyn",
       "Au Ra",
-      "Furry Degen Female",
-      "Furry Degen Female"
+      "Hrothgar",
+      "Viera"
     ];
     const tribes = [
       "Unknown",
@@ -92,10 +92,10 @@ function MainPage() {
       "Hellsguard",
       "Raen",
       "Xaela",
-      "Furry Degen",
-      "Furry Degen",
-      "Furry Degen Female",
-      "Furry Degen Female",
+      "Hrothgar",
+      "Hrothgar",
+      "Viera",
+      "Viera",
     ];
     const genders = ["Unknown", "M", "F"];
 
