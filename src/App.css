@@ -138,3 +138,19 @@ input[type="submit"]:hover {
   right: -20px;
   transition: 0.5s;
 }
+
+.header {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+}
+
+.header-text {
+  margin-right: 15px;
+  color: rgb(97, 97, 97);
+  cursor: pointer;
+}
+
+.header-text:hover {
+  color:#b9b9b9;
+}
