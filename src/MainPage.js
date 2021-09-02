@@ -1,15 +1,22 @@
 import React from "react";
 import "./App.css";
-import { CardLinks } from "./UIComponents/CardLinks";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import FCStatistics from "./FreeCompany/FCStatistics";
+import EmptyPage from "./EmptyPage";
+import MainMenu from "./Menu/MainMenu";
 
 export const MainPage = () => {
   return (
-      <div class="main">
-        <CardLinks pageName="FCStatistics" fullName="Free Company Demographics"/>
-        <CardLinks pageName="N/A" fullName="N/A"/>
-        <CardLinks pageName="N/A" fullName="N/A"/>
-      </div>
-  )
+    <div class="main">
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainMenu} />
+          <Route exact path="/fc-statistics" component={FCStatistics} />
+          <Route exact path="/empty" component={EmptyPage} />
+        </Switch>
+      </Router>
+    </div>
+  );
 };
 
 export default MainPage;
