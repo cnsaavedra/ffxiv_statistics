@@ -29,6 +29,36 @@ h6 {
   font-weight: 900;
 }
 
+.main {
+  display: flex;
+  flex-flow: row;
+  gap: 100px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9 !important;
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border: solid 1px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card:hover {
+  border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+}
+
 label {
   font-weight: 600;
   font-size: 24px;
