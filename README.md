@@ -1,2 +1,2 @@
-# ffxiv_statistics
-Shows FC Demographics
+# Final Fantasy XIV Statistics
+Shows the statistics from the MMORPG Final Fantasy XIV and showcases demographics, data and more!
