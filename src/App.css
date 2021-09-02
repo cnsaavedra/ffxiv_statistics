@@ -143,10 +143,11 @@ input[type="submit"]:hover {
   position: absolute;
   top: 100px;
   left: 200px;
+  display: flex;
 }
 
 .header-text {
-  margin-right: 15px;
+  margin: 0px 10px;
   color: rgb(97, 97, 97);
   cursor: pointer;
 }
