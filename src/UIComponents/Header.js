@@ -1,7 +1,10 @@
 import React from "react";
 import "../App.css";
-import { BrowserRouter as Link } from "react-router-dom";
 import { withRouter } from "react-router";
+import FCStatistics from "../FreeCompany/FCStatistics";
+import MainMenu from "./MainMenu";
+import EmptyPage from "../EmptyPage";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 export const Header = (props) => {
   if (props.location.pathname !== "/") {
