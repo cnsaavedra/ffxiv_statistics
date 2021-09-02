@@ -5,6 +5,33 @@ body {
   background-color: #efeeea;
 }
 
+@media only screen and (max-width:768px) {
+  body {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-wrap {
+    display: flex;
+    flex-flow: column;
+    margin: 55px;
+  }
+  .search {
+    gap: 0px !important;
+  }
+  .header {
+    position: relative !important;
+    bottom: 200px !important;
+    top: 0px !important;
+    left: 15px !important;
+  }
+  .main {
+    display: flex !important;
+    flex-flow: column !important;
+    gap: 15px !important;
+  }
+}
+
 html {
   display: table;
   margin: auto;
@@ -153,5 +180,5 @@ input[type="submit"]:hover {
 }
 
 .header-text:hover {
-  color:#b9b9b9;
+  color: #b9b9b9;
 }

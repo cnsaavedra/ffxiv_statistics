@@ -121,7 +121,7 @@ function FCStatistics() {
   };
 
   return (
-    <div>
+    <div class="search-wrap">
       <h1>Please search your FC name to find your FC demographics!</h1>
       <form class="search">
         <label>

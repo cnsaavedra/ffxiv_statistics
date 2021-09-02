@@ -4,7 +4,6 @@ import "./App.css";
 export const EmptyPage = () => {
   return (
       <div class="main">
-        Empty!
       </div>
   )
 };
