@@ -13,8 +13,14 @@ export const Demographics = ({ data, isLoading }) => {
   if (isLoading) {
     return (
       <div className="sweet-loading">
-      <BeatLoader margin={2} color={color} loading={isLoading} css={override} size={10} />
-    </div>
+        <BeatLoader
+          margin={2}
+          color={color}
+          loading={isLoading}
+          css={override}
+          size={10}
+        />
+      </div>
     );
   } else if (data) {
     return (
