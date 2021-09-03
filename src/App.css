@@ -20,7 +20,7 @@ body {
     gap: 0px !important;
   }
   .header {
-    position: relative !important;
+    position: absolute !important;
     bottom: 200px !important;
     top: 0px !important;
     left: 15px !important;
