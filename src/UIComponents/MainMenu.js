@@ -7,7 +7,7 @@ export const MainMenu = () => {
   return (
     <div class="main">
       <Link class="card" to="/fc-statistics">FC Demographics</Link>
-      <Link class="card" to="/what-is-up">What's everyone doing?</Link>
+      <Link class="card" to="/what-is-up">What's everyone selling?</Link>
       <Link class="card" to="/empty">Under Construction</Link>
     </div>
   );

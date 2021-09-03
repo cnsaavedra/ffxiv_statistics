@@ -133,7 +133,7 @@ function WhatIsUp() {
                 </div>
               );
             })}
-            <h6>This is sorted via sale velocity</h6>
+            <h6>This is sorted via sale velocity that sells the fastest.</h6>
           </div>
         ) : (
           ""
