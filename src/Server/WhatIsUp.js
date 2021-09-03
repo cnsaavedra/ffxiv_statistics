@@ -8,12 +8,10 @@ function WhatIsUp() {
   const [server_name, setServer] = useState("Adamantoise");
   const [isLoading, setIsLoading] = useState(false);
   const [items, setItems] = useState([]);
-  const [itemsInfo, setItemsInfo] = useState("");
   const [data, setData] = useState("");
 
   const handleServerChange = (event) => {
     setServer(event);
-    console.log("select " + event);
   };
 
   const handleInput = () => {
@@ -65,7 +63,6 @@ function WhatIsUp() {
     const url_base = "https://universalis.app/";
 
     var info = {};
-    var infoArr = [];
 
     for (let i = 0; i < items.length; i++) {
       await axios
@@ -73,12 +70,17 @@ function WhatIsUp() {
         .then(async (res) => {
           // Handle Your response here.
           var itemName = await getItemInfo(res.data.itemID);
-          console.log(itemName);
           info[itemName] = res.data;
-          infoArr.push(info);
         });
     }
     setIsLoading(false);
+    var infoArr = [];
+
+    for (let i = 0; i < Object.keys(info).length; i++) {
+      const name = Object.keys(info)[i];
+      infoArr.push(info[name]);
+      info[name].name = name;
+    }
   };
 
   async function getItemInfo(itemId) {
