@@ -5,7 +5,7 @@ body {
   background-color: #efeeea;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   body {
     display: flex !important;
     justify-content: center;
@@ -30,6 +30,12 @@ body {
     flex-flow: column !important;
     gap: 15px !important;
   }
+}
+
+.what-is-up {
+  display: flex;
+  flex-flow: column;
+  gap: 30px;
 }
 
 html {

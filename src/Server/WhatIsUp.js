@@ -49,10 +49,6 @@ function WhatIsUp() {
         var itemIds = [];
         for (let i = 0; i < res.data.items.length; i++) {
           itemIds.push(res.data.items[i]["itemID"]);
-
-          if (i === 1) {
-            break;
-          }
         }
         setItems(itemIds);
       });
@@ -81,6 +77,21 @@ function WhatIsUp() {
       infoArr.push(info[name]);
       info[name].name = name;
     }
+
+    var top3 = infoArr
+      .slice()
+      .sort(function (a, b) {
+        return b.regularSaleVelocity - a.regularSaleVelocity;
+      })
+      .slice(0, 10);
+
+    const returnArr = [];
+    const returnObj = {};
+    for (let i = 0; i < top3.length; i++) {
+      returnArr.push([top3[i].name, top3[i].regularSaleVelocity]);
+      returnObj[top3[i].name] = top3[i].regularSaleVelocity;
+    }
+    setData(JSON.stringify(returnObj));
   };
 
   async function getItemInfo(itemId) {
@@ -96,7 +107,11 @@ function WhatIsUp() {
 
   if (serverList && !isLoading) {
     return (
-      <div class="main">
+      <div class="what-is-up">
+        <div>
+          <h1>Generate the top ten sales in the selected server</h1>
+          <h5>This can help you know what to sell right now to make gil!</h5>
+        </div>
         <select onChange={(e) => handleServerChange(e.target.value)}>
           {serverList.map((item) => (
             <option key={item.value} value={item.value}>
@@ -108,7 +123,21 @@ function WhatIsUp() {
         <button class="button" type="button" onClick={() => handleInput()}>
           Generate
         </button>
-        {data ? <div>{data}</div> : ""}
+        {data ? (
+          <div>
+            <h1>The top 10 sales currently updated are:</h1>
+            {Object.entries(JSON.parse(data)).map(([key, value]) => {
+              return (
+                <div>
+                  {key} : {value.toString()}
+                </div>
+              );
+            })}
+            <h6>This is sorted via sale velocity</h6>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
