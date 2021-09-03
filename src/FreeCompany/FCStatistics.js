@@ -77,9 +77,9 @@ function FCStatistics() {
         for (let i = 0; i < members_data.length; i++) {
           ID_arr[i] = members_data[i]["ID"];
           setLoadingStatus("Loading FC members...");
-          if (i === 1) {
-            break;
-          }
+          // if (i === 1) {
+          //   break;
+          // }
         }
         getRaceByID(ID_arr);
         console.log("got members ID");
