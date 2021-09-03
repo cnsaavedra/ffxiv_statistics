@@ -64,6 +64,9 @@ export const Demographics = ({
           })}
         </div>
         <hr />
+        <div>
+          Total members: {totalNum}
+        </div>
       </div>
     );
   }
