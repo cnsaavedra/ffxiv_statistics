@@ -9,6 +9,8 @@ function FCStatistics() {
   const [serverList, setServerList] = useState(false);
   const [server_name, setServer] = useState("Adamantoise");
   const [data, setData] = useState("");
+  const [dataClan, setDataClan] = useState("");
+  const [dataGender, setDataGender] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStatus, setLoadingStatus] = useState(false);
 
@@ -21,8 +23,8 @@ function FCStatistics() {
   };
 
   const handleServerChange = (event) => {
-    setServer(event)
-    console.log('select ' + event)
+    setServer(event);
+    console.log("select " + event);
   };
 
   useEffect(() => {
@@ -57,7 +59,7 @@ function FCStatistics() {
       const fc_id = res.data["Results"][0]["ID"];
       getByFCID(fc_id);
       console.log("got FC id");
-      setLoadingStatus('Receieved FC ID...')
+      setLoadingStatus("Receieved FC ID...");
     });
   };
 
@@ -74,7 +76,10 @@ function FCStatistics() {
         var ID_arr = [];
         for (let i = 0; i < members_data.length; i++) {
           ID_arr[i] = members_data[i]["ID"];
-          setLoadingStatus('Loading FC members...')
+          setLoadingStatus("Loading FC members...");
+          if (i === 1) {
+            break;
+          }
         }
         getRaceByID(ID_arr);
         console.log("got members ID");
@@ -133,15 +138,28 @@ function FCStatistics() {
         });
     }
     var demographics = {};
+    var demographicsClan = {};
+    var demographicsGender = {};
+
+    console.log(census_list);
     for (let i = 0; i < census_list.length; i++) {
       demographics[census_list[i][0]] =
         (demographics[census_list[i][0]] ?? 0) + 1;
-        setLoadingStatus('Iterating... ')
+
+      demographicsClan[census_list[i][1]] =
+        (demographicsClan[census_list[i][1]] ?? 0) + 1;
+
+      demographicsGender[census_list[i][2]] =
+        (demographicsGender[census_list[i][2]] ?? 0) + 1;
+
+      setLoadingStatus("Iterating... ");
     }
     setIsLoading(false);
     console.log(demographics);
     setData([demographics]);
-    setLoadingStatus('')
+    setDataClan([demographicsClan]);
+    setDataGender([demographicsGender]);
+    setLoadingStatus("");
   };
 
   if (serverList) {
@@ -155,9 +173,7 @@ function FCStatistics() {
             </option>
           ))}
         </select>
-        <div>
-          Current server: {server_name ?? 'None'}
-        </div>
+        <div>Current server: {server_name ?? "None"}</div>
         <form class="search">
           <label>
             Free Company name:
@@ -172,8 +188,13 @@ function FCStatistics() {
             Generate
           </button>
         </form>
-        <Demographics data={data} isLoading={isLoading} />
-        {loadingStatus ? <div>{loadingStatus}</div> : ''}
+        <Demographics
+          data={data}
+          dataClan={dataClan}
+          dataGender={dataGender}
+          isLoading={isLoading}
+        />
+        {loadingStatus ? <div>{loadingStatus}</div> : ""}
       </div>
     );
   } else {
