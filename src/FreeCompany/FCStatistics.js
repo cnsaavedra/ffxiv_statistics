@@ -11,6 +11,7 @@ function FCStatistics() {
   const [data, setData] = useState("");
   const [dataClan, setDataClan] = useState("");
   const [dataGender, setDataGender] = useState("");
+  const [totalNum, setTotalNum] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStatus, setLoadingStatus] = useState(false);
 
@@ -73,11 +74,12 @@ function FCStatistics() {
       .then((res) => {
         // Handle Your response here.
         const members_data = res.data["FreeCompanyMembers"];
+        setTotalNum(members_data.length);
         var ID_arr = [];
         for (let i = 0; i < members_data.length; i++) {
           ID_arr[i] = members_data[i]["ID"];
           setLoadingStatus("Loading FC members...");
-          // if (i === 1) {
+          // if (i === 5) {
           //   break;
           // }
         }
@@ -140,8 +142,7 @@ function FCStatistics() {
     var demographics = {};
     var demographicsClan = {};
     var demographicsGender = {};
-
-    console.log(census_list);
+    
     for (let i = 0; i < census_list.length; i++) {
       demographics[census_list[i][0]] =
         (demographics[census_list[i][0]] ?? 0) + 1;
@@ -155,10 +156,9 @@ function FCStatistics() {
       setLoadingStatus("Iterating... ");
     }
     setIsLoading(false);
-    console.log(demographics);
     setData([demographics]);
-    setDataClan([demographicsClan]);
-    setDataGender([demographicsGender]);
+    setDataClan(JSON.stringify(demographicsClan));
+    setDataGender(JSON.stringify(demographicsGender));
     setLoadingStatus("");
   };
 
@@ -189,6 +189,7 @@ function FCStatistics() {
           </button>
         </form>
         <Demographics
+          totalNum={totalNum}
           data={data}
           dataClan={dataClan}
           dataGender={dataGender}
