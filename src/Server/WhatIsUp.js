@@ -7,11 +7,17 @@ function WhatIsUp() {
   const [serverList, setServerList] = useState(false);
   const [server_name, setServer] = useState("Adamantoise");
   const [isLoading, setIsLoading] = useState(false);
+  const [items, setItems] = useState([]);
+  const [itemsInfo, setItemsInfo] = useState("");
   const [data, setData] = useState("");
 
   const handleServerChange = (event) => {
     setServer(event);
     console.log("select " + event);
+  };
+
+  const handleInput = () => {
+    getItemHistory();
   };
 
   useEffect(() => {
@@ -30,25 +36,62 @@ function WhatIsUp() {
     await axios.get(url_base + "/servers").then((res) => {
       // Handle Your response here.
       setServerList(res.data);
-      console.log(res.data);
     });
   };
 
   const callYourAPI = async () => {
     setIsLoading(true);
     const url_base = "https://universalis.app/";
-    const payload = {
-      world: server_name,
-    };
     await axios
       .get(
         url_base + "api/extra/stats/most-recently-updated?world=" + server_name
       )
       .then((res) => {
         // Handle Your response here.
-        console.log(res);
+        var itemIds = [];
+        for (let i = 0; i < res.data.items.length; i++) {
+          itemIds.push(res.data.items[i]["itemID"]);
+
+          if (i === 1) {
+            break;
+          }
+        }
+        setItems(itemIds);
       });
   };
+
+  const getItemHistory = async () => {
+    setIsLoading(true);
+    const url_base = "https://universalis.app/";
+
+    var info = {};
+    var infoArr = [];
+
+    for (let i = 0; i < items.length; i++) {
+      await axios
+        .get(url_base + "api/v2/history/" + server_name + "/" + items[i])
+        .then(async (res) => {
+          // Handle Your response here.
+          var itemName = await getItemInfo(res.data.itemID);
+          console.log(itemName);
+          info[itemName] = res.data;
+          infoArr.push(info);
+        });
+    }
+    setIsLoading(false);
+  };
+
+  async function getItemInfo(itemId) {
+    const url_base = "https://xivapi.com/";
+
+    const name = await axios
+      .get(url_base + "item/" + itemId)
+      .then(async (res) => {
+        return res.data["Name"];
+      });
+    return name;
+  }
+
   if (serverList && !isLoading) {
     return (
       <div class="main">
@@ -60,6 +103,10 @@ function WhatIsUp() {
           ))}
         </select>
         <div>Current server: {server_name ?? "None"}</div>
+        <button class="button" type="button" onClick={() => handleInput()}>
+          Generate
+        </button>
+        {data ? <div>{data}</div> : ""}
       </div>
     );
   }
