@@ -6,6 +6,8 @@ import EmptyPage from "./EmptyPage";
 import MainMenu from "./UIComponents/MainMenu";
 import Header from "./UIComponents/Header";
 import WhatIsUp from "./Server/WhatIsUp";
+import Fashion from "./Server/Fashion";
+
 
 export const MainPage = () => {
   return (
@@ -16,7 +18,7 @@ export const MainPage = () => {
           <Route exact path="/" component={MainMenu} />
           <Route exact path="/fc-statistics" component={FCStatistics} />
           <Route exact path="/what-is-up" component={WhatIsUp} />
-          <Route exact path="/empty" component={EmptyPage} />
+          <Route exact path="/fashion" component={Fashion} />
         </Switch>
       </Router>
     </div>

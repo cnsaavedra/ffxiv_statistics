@@ -8,7 +8,7 @@ export const MainMenu = () => {
     <div class="main">
       <Link class="card" to="/fc-statistics">FC Demographics</Link>
       <Link class="card" to="/what-is-up">What's everyone selling?</Link>
-      <Link class="card" to="/empty">Under Construction</Link>
+      <Link class="card" to="/fashion">Fashion</Link>
     </div>
   );
 };
