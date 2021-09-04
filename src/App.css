@@ -233,6 +233,8 @@ input[type="submit"]:hover {
 }
 
 .paginationItem {
+  font-family: "VT323", monospace;
+  font-size: 18px;
   padding: 10px 15px;
   height: 15px;
   width: 45px;
@@ -255,11 +257,18 @@ input[type="submit"]:hover {
 
 .prev,
 .next {
+  font-family: "VT323", monospace;
+  font-size: 18px;
   border: none;
   padding: 10px;
   color: rgb(0, 0, 0);
   margin: 0 10px;
   cursor: pointer;
+}
+
+.prev,
+.next:hover {
+  color: rgb(97, 97, 97);
 }
 
 .paginationItem.active {
