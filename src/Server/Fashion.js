@@ -38,11 +38,12 @@ export const Fashion = () => {
     return JSON.stringify(data.Results);
   };
 
-  async function getItemInfo(itemId) {
-    const url_base = "		https://ffxivcollect.com/api/fashions?item_id=";
-    await axios.get(url_base + itemId).then((res) => {
-      console.log(res);
-    });
+  function getItemInfo(item_name) {
+    console.log(item_name);
+    const name = item_name.replace(/ /g, "_");
+    const url_base = "https://ffxiv.gamerescape.com/wiki/" + name;
+    console.log(url_base);
+    window.open(url_base);
   }
 
   useEffect(() => {
@@ -69,7 +70,7 @@ export const Fashion = () => {
         <div className="dataContainer">
           <div className="group">
             {JSON.parse(getPaginatedData()).map((d, idx) => (
-              <div className="item">
+              <div onClick={() => getItemInfo(d.Name)} className="item">
                 <p>{d.Name}</p>
                 <img
                   src={"https://xivapi.com" + d.Icon}

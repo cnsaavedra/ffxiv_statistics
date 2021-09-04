@@ -222,6 +222,11 @@ input[type="submit"]:hover {
   background-color: #aaa;
 }
 
+.item:hover {
+  cursor: pointer;
+  background-color: rgb(105, 105, 105);
+}
+
 .pagination {
   display: flex;
   align-items: center;
