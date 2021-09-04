@@ -226,6 +226,10 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  flex-flow: column;
+  right: 0;
 }
 
 .paginationItem {
