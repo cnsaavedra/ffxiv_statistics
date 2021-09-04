@@ -8,7 +8,6 @@ import Header from "./UIComponents/Header";
 import WhatIsUp from "./Server/WhatIsUp";
 import Fashion from "./Server/Fashion";
 
-
 export const MainPage = () => {
   return (
     <div>
@@ -18,7 +17,7 @@ export const MainPage = () => {
           <Route exact path="/" component={MainMenu} />
           <Route exact path="/fc-statistics" component={FCStatistics} />
           <Route exact path="/what-is-up" component={WhatIsUp} />
-          <Route exact path="/fashion" component={Fashion} />
+          <Route path="/fashion" component={Fashion} />
         </Switch>
       </Router>
     </div>
