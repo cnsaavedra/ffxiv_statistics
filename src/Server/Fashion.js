@@ -41,7 +41,7 @@ export const Fashion = () => {
   async function getItemInfo(itemId) {
     const url_base = "		https://ffxivcollect.com/api/fashions?item_id=";
     await axios.get(url_base + itemId).then((res) => {
-      console.log(res)
+      console.log(res);
     });
   }
 
@@ -64,9 +64,19 @@ export const Fashion = () => {
 
   if (data) {
     return (
-      <div class="main">
+      <div class="fashion-main">
         <div className="dataContainer">
-          {JSON.parse(getPaginatedData()).map((d, idx) => d.Name)}
+          <div className="group">
+            {JSON.parse(getPaginatedData()).map((d, idx) => (
+              <div className="item">
+                <p>{d.Name}</p>
+                <img
+                  src={"https://xivapi.com" + d.Icon}
+                  alt={d.Name + "Image"}
+                ></img>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="pagination">
