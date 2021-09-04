@@ -221,3 +221,51 @@ input[type="submit"]:hover {
   padding: 10px;
   background-color: #aaa;
 }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationItem {
+  padding: 10px 15px;
+  height: 15px;
+  width: 45px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+}
+
+.paginationItem:hover {
+  color: white !important;
+  background-color: rgb(172, 172, 172);
+}
+
+.paginationItem span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prev,
+.next {
+  border: none;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.paginationItem.active {
+  color: #888;
+  pointer-events: none;
+}
+
+.prev.disabled,
+.next.disabled {
+  pointer-events: none;
+  box-shadow: none;
+  color: #999;
+}

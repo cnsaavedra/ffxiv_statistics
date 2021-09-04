@@ -46,6 +46,7 @@ export const Fashion = () => {
   }
 
   useEffect(() => {
+    window.scrollTo({ behavior: "smooth", top: "0px" });
     const getClothes = async () => {
       setIsLoading(true);
       const url_base = "https://xivapi.com";
@@ -104,7 +105,9 @@ export const Fashion = () => {
           {/* next button */}
           <button
             onClick={goToNextPage}
-            className={`next ${currentPage === pages ? "disabled" : ""}`}
+            className={`next ${
+              Number(currentPage) === 14 ? "disabled" : ""
+            }`}
           >
             next
           </button>
