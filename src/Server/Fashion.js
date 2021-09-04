@@ -79,38 +79,37 @@ export const Fashion = () => {
             ))}
           </div>
         </div>
-
-        <div className="pagination">
-          {/* previous button */}
-          <button
-            onClick={goToPreviousPage}
-            className={`prev ${currentPage === 1 ? "disabled" : ""}`}
-          >
-            prev
-          </button>
-
-          {/* show page numbers */}
-          {getPaginationGroup().map((item, index) => (
+        <div class="pagination-wrap">
+          <div className="pagination">
+            {/* previous button */}
             <button
-              key={index}
-              onClick={changePage}
-              className={`paginationItem ${
-                currentPage === item ? "active" : null
-              }`}
+              onClick={goToPreviousPage}
+              className={`prev ${currentPage === 1 ? "disabled" : ""}`}
             >
-              <span>{item}</span>
+              prev
             </button>
-          ))}
 
-          {/* next button */}
-          <button
-            onClick={goToNextPage}
-            className={`next ${
-              Number(currentPage) === 14 ? "disabled" : ""
-            }`}
-          >
-            next
-          </button>
+            {/* show page numbers */}
+            {getPaginationGroup().map((item, index) => (
+              <button
+                key={index}
+                onClick={changePage}
+                className={`paginationItem ${
+                  currentPage === item ? "active" : null
+                }`}
+              >
+                <span>{item}</span>
+              </button>
+            ))}
+
+            {/* next button */}
+            <button
+              onClick={goToNextPage}
+              className={`next ${Number(currentPage) === 14 ? "disabled" : ""}`}
+            >
+              next
+            </button>
+          </div>
         </div>
       </div>
     );
